@@ -1,4 +1,4 @@
-package org.example;
+package example;
 
 public class Room {
     private int roomNumber;

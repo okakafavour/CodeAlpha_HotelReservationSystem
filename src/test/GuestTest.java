@@ -1,4 +1,4 @@
-import org.example.Guest;
+import example.Guest;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
