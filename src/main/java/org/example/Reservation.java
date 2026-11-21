@@ -9,6 +9,7 @@ public class Reservation {
     private Room room;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
+    private PaymentStatus paymentStatus;
 
     public Reservation(int reservationId, Guest guest, Room room, LocalDate checkInDate, LocalDate checkOutDate) {
         validateReservationId(reservationId);
@@ -22,6 +23,7 @@ public class Reservation {
         this.room = room;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
+        this.paymentStatus = PaymentStatus.UNPAID;
     }
 
     public int getReservationId() {
@@ -44,6 +46,10 @@ public class Reservation {
         return checkOutDate;
     }
 
+    public PaymentStatus getPaymentStatus(){
+        return paymentStatus;
+    }
+
     private void validateReservationId(int reservationId){
         if(reservationId <= 0) {
             throw new IllegalArgumentException("Invalid Reservation Id");
@@ -60,6 +66,10 @@ public class Reservation {
         if(room == null){
             throw new IllegalArgumentException("Room cannot be null");
         }
+    }
+
+    public void setPaymentStatus(PaymentStatus paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
 
     private void validateCheckInDate(LocalDate checkInDate){
